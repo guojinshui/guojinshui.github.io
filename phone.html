@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>拨号</title>
+    <script type="text/javascript">
+        const params = new URLSearchParams(window.location.search);
+        const paramValue = params.get('number');
+        window.location.href = "tel:" + paramValue;
+    </script>
+</head>
+<body>
+
+</body>
+</html>
