@@ -3,13 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <title>拨号</title>
+    <script type="text/javascript" src="./js/jquery-3.7.0.min.js"></script>
     <script type="text/javascript">
         const params = new URLSearchParams(window.location.search);
         const paramValue = params.get('number');
+        $("#btn").click(function(){
+            window.location.href = "tel:" + paramValue;
+        });
         window.location.href = "tel:" + paramValue;
     </script>
 </head>
 <body>
-
+<div>
+    <div>
+        <div id="username"></div>
+        <button id="btn">拨打电话</button>
+    </div>
+</div>
 </body>
 </html>
