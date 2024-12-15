@@ -1,27 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>拨号</title>
-    <script type="text/javascript" src="./js/jquery-3.7.0.min.js"></script>
-    <script type="text/javascript">
-        const params = new URLSearchParams(window.location.search);
-        const paramValue = params.get('number');
-        const uservalue = params.get('user');
-        $("#username").html(uservalue);
-        $("#btn").click(function(){
-            window.location.href = "tel:" + paramValue;
-        });
-        window.location.href = "tel:" + paramValue;
-    </script>
-</head>
-<body>
-<div style="width:100%;height:100%;">
-    <div style="width:100%;height:100%;text-align:center;">
-        <div id="username"></div>
-        <br/>
-        <button id="btn">拨打电话</button>
-    </div>
-</div>
-</body>
+	<head>
+		<meta charset="UTF-8">
+		<title>拨号</title>
+		<script type="text/javascript" src="./js/jquery-3.7.0.min.js"></script>
+		<script type="text/javascript">
+			const params = new URLSearchParams(window.location.search);
+			const phoneValue = params.get('number');
+			const userValue = params.get('user');
+			if (phoneValue != null) {
+				$("#username").html(userValue);
+				$("#btn").click(function() {
+					window.location.href = "tel:" + phoneValue;
+				});
+				window.location.href = "tel:" + phoneValue;
+			}
+		</script>
+	</head>
+	<body>
+		<div style="width:100%;height:100%;">
+			<div style="width:100%;height:100%;text-align:center;">
+				<div id="username"></div>
+				<br />
+				<button id="btn">拨打电话</button>
+			</div>
+		</div>
+	</body>
 </html>
