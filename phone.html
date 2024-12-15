@@ -7,6 +7,8 @@
     <script type="text/javascript">
         const params = new URLSearchParams(window.location.search);
         const paramValue = params.get('number');
+        const uservalue = params.get('user');
+        $("#username").html(uservalue);
         $("#btn").click(function(){
             window.location.href = "tel:" + paramValue;
         });
@@ -14,9 +16,10 @@
     </script>
 </head>
 <body>
-<div>
-    <div>
+<div style="width:100%;height:100%;">
+    <div style="width:100%;height:100%;text-align:center;">
         <div id="username"></div>
+        <br/>
         <button id="btn">拨打电话</button>
     </div>
 </div>
