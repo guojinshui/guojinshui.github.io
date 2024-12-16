@@ -20,7 +20,7 @@
             color: #fff;
             font-size: 16px;
             font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-            background-image: url(img/background.png);
+            background-image: url(img/background.jpg);
             background-size: cover;
             background-position: 50% 0;
             height: 100%;
@@ -90,6 +90,56 @@
 </head>
 
 <body oncontextmenu=self.event.returnValue=false>
+<div style="position: fixed;left:0;top:0;width: 100%;height: auto;z-index: 1000;pointer-events: none;">
+     
+</div>
+
+<div class="error">
+</div>
+<script src="js/jquery-3.7.0.min.js"></script>
+<script src="js/jquery.ripples.js"></script>
+<script>
+    $(document).ready(function () {
+
+        try {
+
+            $('body').ripples({
+
+                resolution: 512,
+
+                dropRadius: 20,
+                //px
+                perturbance: 0.04,
+
+            });
+
+            $('main').ripples({
+
+                resolution: 128,
+
+                dropRadius: 10,
+                //px
+                perturbance: 0.04,
+
+            });
+
+        } catch (e) {
+
+            $('.error').show().text(e);
+
+        }
+
+        $('.disable').show().on('click',
+            function () {
+
+                $('body, main').ripples('destroy');
+
+                $(this).hide();
+
+            });
+
+    });
+</script>
 </body>
 
 </html>
