@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        GJS-首页
+    </title>
+    <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            height: 100%;
+        }
+
+        body {
+            color: #fff;
+            font-size: 16px;
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            background-image: url(img/background.png);
+            background-size: cover;
+            background-position: 50% 0;
+            height: 100%;
+            text-align: center;
+        }
+
+        body:before {
+            content: '';
+            display: inline-block;
+            vertical-align: middle;
+            height: 100%;
+        }
+
+        h1 {
+            font-size: 32px;
+        }
+
+        h2 {
+            font-size: 18px;
+            margin-top: 6px;
+        }
+
+        p {
+            text-align: left;
+            margin-top: 20px;
+        }
+
+        a {
+            color: #ff6800;
+        }
+
+        pre {
+            text-align: left;
+            margin-top: 20px;
+        }
+
+        .error {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            background: #000;
+            color: #f00;
+            padding: 5px;
+            max-width: 50%;
+        }
+
+        .disable {
+            position: fixed;
+            bottom: 0;
+            right: 0;
+            max-width: 50%;
+        }
+
+        * {
+            user-select: none;
+        }
+    </style>
+    <script type="text/javascript">
+        window.onkeydown = window.onkeyup = window.onkeypress = function (event) {
+            if (event.keyCode === 123) {
+                event.preventDefault();
+                window.event.returnValue = false;
+            }
+        }
+    </script>
+</head>
+
+<body oncontextmenu=self.event.returnValue=false>
+</body>
+
+</html>
