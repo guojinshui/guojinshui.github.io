@@ -138,6 +138,30 @@
 
             });
 
+        
+// 定义API URL
+const apiUrl = 'https://www.bing.com/HPImageArchive.aspx?format=js&idx=0&n=1';
+ 
+// 发送HTTP GET请求
+fetch(apiUrl)
+  .then(response => response.json())
+  .then(data => {
+    // 处理数据
+    if (data.images && data.images.length > 0) {
+      const image = data.images[0];
+      const url = `https://www.bing.com${image.url}`;
+        $("body").css("background-image",url);
+      //const copyright = image.copyright;
+      
+      // 展示获取的壁纸信息
+      //console.log(`Wallpaper URL: ${url}`);
+     // console.log(`Copyright: ${copyright}`);
+    }
+  })
+  .catch(error => {
+    // 处理错误
+    console.error('Error fetching wallpaper:', error);
+  });
     });
 </script>
 </body>
