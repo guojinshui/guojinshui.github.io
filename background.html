@@ -150,7 +150,7 @@ fetch(apiUrl)
     if (data.images && data.images.length > 0) {
       const image = data.images[0];
       const url = `https://www.bing.com${image.url}`;
-        $("body").css("background-image",url);
+        $("body").css("background-image",url(url));
       //const copyright = image.copyright;
       
       // 展示获取的壁纸信息
