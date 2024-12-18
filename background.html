@@ -1,169 +1,137 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-    <title>
-        GJS-背景
-    </title>
-    <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-        }
+	<head>
+		<title>
+			GJS-背景
+		</title>
+		<link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+			}
 
-        html {
-            height: 100%;
-        }
+			html {
+				height: 100%;
+			}
 
-        body {
-            color: #fff;
-            font-size: 16px;
-            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-            background-image: url(img/background.jpg);
-            background-size: cover;
-            background-position: 50% 0;
-            height: 100%;
-            text-align: center;
-        }
+			body {
+				color: #fff;
+				font-size: 16px;
+				font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+				background-size: cover;
+				background-position: 50% 0;
+				height: 100%;
+				text-align: center;
+			}
 
-        body:before {
-            content: '';
-            display: inline-block;
-            vertical-align: middle;
-            height: 100%;
-        }
+			body:before {
+				content: '';
+				display: inline-block;
+				vertical-align: middle;
+				height: 100%;
+			}
 
-        h1 {
-            font-size: 32px;
-        }
+			h1 {
+				font-size: 32px;
+			}
 
-        h2 {
-            font-size: 18px;
-            margin-top: 6px;
-        }
+			h2 {
+				font-size: 18px;
+				margin-top: 6px;
+			}
 
-        p {
-            text-align: left;
-            margin-top: 20px;
-        }
+			p {
+				text-align: left;
+				margin-top: 20px;
+			}
 
-        a {
-            color: #ff6800;
-        }
+			a {
+				color: #ff6800;
+			}
 
-        pre {
-            text-align: left;
-            margin-top: 20px;
-        }
+			pre {
+				text-align: left;
+				margin-top: 20px;
+			}
 
-        .error {
-            display: none;
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            background: #000;
-            color: #f00;
-            padding: 5px;
-            max-width: 50%;
-        }
+			.error {
+				display: none;
+				position: fixed;
+				bottom: 0;
+				left: 0;
+				background: #000;
+				color: #f00;
+				padding: 5px;
+				max-width: 50%;
+			}
 
-        .disable {
-            position: fixed;
-            bottom: 0;
-            right: 0;
-            max-width: 50%;
-        }
+			.disable {
+				position: fixed;
+				bottom: 0;
+				right: 0;
+				max-width: 50%;
+			}
 
-        * {
-            user-select: none;
-        }
-    </style>
-    <script type="text/javascript">
-        window.onkeydown = window.onkeyup = window.onkeypress = function (event) {
-            if (event.keyCode === 123) {
-                event.preventDefault();
-                window.event.returnValue = false;
-            }
-        }
-    </script>
-</head>
+			* {
+				user-select: none;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onkeydown = window.onkeyup = window.onkeypress = function(event) {
+				if (event.keyCode === 123) {
+					event.preventDefault();
+					window.event.returnValue = false;
+				}
+			}
+		</script>
+	</head>
 
-<body oncontextmenu=self.event.returnValue=false>
-<div style="position: fixed;left:0;top:0;width: 100%;height: auto;z-index: 1000;pointer-events: none;">
-     
-</div>
+	<body oncontextmenu=self.event.returnValue=false>
+		<div style="position: fixed;left:0;top:0;width: 100%;height: auto;z-index: 1000;pointer-events: none;">
 
-<div class="error">
-</div>
-<script src="js/jquery-3.7.0.min.js"></script>
-<script src="js/jquery.ripples.js"></script>
-<script>
-    $(document).ready(function () {
+		</div>
 
-        try {
-
-            $('body').ripples({
-
-                resolution: 512,
-
-                dropRadius: 20,
-                //px
-                perturbance: 0.04,
-
-            });
-
-            $('main').ripples({
-
-                resolution: 128,
-
-                dropRadius: 10,
-                //px
-                perturbance: 0.04,
-
-            });
-
-        } catch (e) {
-
-            $('.error').show().text(e);
-
-        }
-
-        $('.disable').show().on('click',
-            function () {
-
-                $('body, main').ripples('destroy');
-
-                $(this).hide();
-
-            });
-
-        
-// 定义API URL
-const apiUrl = 'https://www.bing.com/HPImageArchive.aspx?format=js&idx=0&n=1';
- 
-// 发送HTTP GET请求
-fetch(apiUrl)
-  .then(response => response.json())
-  .then(data => {
-    // 处理数据
-    if (data.images && data.images.length > 0) {
-      const image = data.images[0];
-      const url = `https://www.bing.com${image.url}`;
-        $("body").css("background-image",url(url));
-      //const copyright = image.copyright;
-      
-      // 展示获取的壁纸信息
-      //console.log(`Wallpaper URL: ${url}`);
-     // console.log(`Copyright: ${copyright}`);
-    }
-  })
-  .catch(error => {
-    // 处理错误
-    console.error('Error fetching wallpaper:', error);
-  });
-    });
-</script>
-</body>
+		<div class="error">
+		</div>
+		<script src="js/jquery-3.7.0.min.js"></script>
+		<script src="js/jquery.ripples.js"></script>
+		<script>
+			$(document).ready(function() {
+				$.ajax({
+					url: 'https://www.bing.com/HPImageArchive.aspx?format=js&idx=0&n=1',
+					dataType: 'json',
+					success: function(response) {
+						var url = 'https://www.bing.com' + response.images[0].url;
+						console.log(url);
+						$("body").css("background-image", "url(" + url + ")");
+						try {
+							$('body').ripples({
+								resolution: 512,
+								dropRadius: 20,
+								perturbance: 0.04,
+							});
+							$('main').ripples({
+								resolution: 128,
+								dropRadius: 10,
+								perturbance: 0.04,
+							});
+						} catch (e) {
+							$('.error').show().text(e);
+						}
+						$('.disable').show().on('click',
+							function() {
+								$('body, main').ripples('destroy');
+								$(this).hide();
+							});
+					},
+					error: function(jqXHR, textStatus, errorThrown) {
+						console.log("发生错误" + textStatus)
+					}
+				});
+			});
+		</script>
+	</body>
 
 </html>
