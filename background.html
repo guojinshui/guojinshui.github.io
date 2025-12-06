@@ -99,38 +99,10 @@
 		<script src="js/jquery.ripples.js"></script>
 		<script>
 			$(document).ready(function() {
-				$.ajax({
-					url: 'https://www.bing.com/HPImageArchive.aspx?format=js&idx=0&n=1',
-					dataType: 'jsonp',
-					success: function(response) {
-						var url = 'https://www.bing.com' + response.images[0].url;
-						$("body").css("background-image", "url(" + url + ")");
-						try {
-							$('body').ripples({
-								resolution: 512,
-								dropRadius: 20,
-								perturbance: 0.04,
-							});
-							$('main').ripples({
-								resolution: 128,
-								dropRadius: 10,
-								perturbance: 0.04,
-							});
-						} catch (e) {
-							$('.error').show().text(e);
-						}
-						$('.disable').show().on('click',
-							function() {
-								$('body, main').ripples('destroy');
-								$(this).hide();
-							});
-					},
-					error: function(jqXHR, textStatus, errorThrown) {
-						console.log("发生错误" + textStatus)
-					}
-				});
+				$("body").css("background-image", "url(https://api.btstu.cn/bing/api.php)");
 			});
 		</script>
 	</body>
 
 </html>
+
